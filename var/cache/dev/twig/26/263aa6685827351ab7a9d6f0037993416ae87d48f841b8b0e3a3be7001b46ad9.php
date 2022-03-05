@@ -127,6 +127,12 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
                                             <a href=\"#\" class=\"btn_2\">buy now</a>
 
                                         </div>
+                                         <div class=\"banner_text_iner\">
+                                            <h1>Culture</h1>
+                                            
+                                            
+
+                                        </div>
                                     </div>
                                 </div>
 
@@ -147,32 +153,38 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
 
             <tbody>
         ";
-        // line 62
+        // line 68
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 62, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["data"]) || array_key_exists("data", $context) ? $context["data"] : (function () { throw new RuntimeError('Variable "data" does not exist.', 68, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 63
+            // line 69
             echo "            <tr>
 
         <td><img src=\"";
-            // line 65
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["i"], "image", [], "any", false, false, false, 65))), "html", null, true);
+            // line 71
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["i"], "image", [], "any", false, false, false, 71))), "html", null, true);
             echo "\">
                      <alt =\"\" style=\"width: 10px:height: 10px\"></td>
                 <td>";
-            // line 67
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "designation", [], "any", false, false, false, 67), "html", null, true);
+            // line 73
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "designation", [], "any", false, false, false, 73), "html", null, true);
             echo "</td>
                 <td>";
-            // line 68
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "prix", [], "any", false, false, false, 68), "html", null, true);
+            // line 74
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "prix", [], "any", false, false, false, 74), "html", null, true);
             echo "</td>
                 <td>";
-            // line 69
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["i"], "cathegorie", [], "any", false, false, false, 69), "id", [], "any", false, false, false, 69), "html", null, true);
+            // line 75
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["i"], "cathegorie", [], "any", false, false, false, 75), "id", [], "any", false, false, false, 75), "html", null, true);
             echo "</td>
                 <td><a href=\"#\" class=\"btn_2\">buy now</a></td>
+<td>
+  <p>
+    My rating:
+           <input type=\"number\" name=\"inputName\" id=\"rating1\" class=\"rating text-warning\" data-clearable=\"remove\"/>
 
+</p>
+</td>
 
             </tr>
 
@@ -181,14 +193,16 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 76
+        // line 88
         echo "
 
         </tbody>
     </table>
+
+    
     <!--::subscribe_area part end::-->
     ";
-        // line 81
+        // line 95
         echo twig_include($this->env, $context, "includes/frontoffice/footer.html.twig");
         echo "
     <!--::footer_part start::-->
@@ -215,7 +229,7 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
 
     public function getDebugInfo()
     {
-        return array (  192 => 81,  185 => 76,  172 => 69,  168 => 68,  164 => 67,  159 => 65,  155 => 63,  151 => 62,  95 => 9,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
+        return array (  206 => 95,  197 => 88,  178 => 75,  174 => 74,  170 => 73,  165 => 71,  161 => 69,  157 => 68,  95 => 9,  88 => 4,  78 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -262,6 +276,12 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
                                             <a href=\"#\" class=\"btn_2\">buy now</a>
 
                                         </div>
+                                         <div class=\"banner_text_iner\">
+                                            <h1>Culture</h1>
+                                            
+                                            
+
+                                        </div>
                                     </div>
                                 </div>
 
@@ -290,7 +310,13 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
                 <td>{{ i.prix }}</td>
                 <td>{{ i.cathegorie.id }}</td>
                 <td><a href=\"#\" class=\"btn_2\">buy now</a></td>
+<td>
+  <p>
+    My rating:
+           <input type=\"number\" name=\"inputName\" id=\"rating1\" class=\"rating text-warning\" data-clearable=\"remove\"/>
 
+</p>
+</td>
 
             </tr>
 
@@ -299,6 +325,8 @@ class __TwigTemplate_f719dd0e1aa96edd2e77048b7917326fad969a6a1a7e682c7ee34a5e3ab
 
         </tbody>
     </table>
+
+    
     <!--::subscribe_area part end::-->
     {{include('includes/frontoffice/footer.html.twig')}}
     <!--::footer_part start::-->

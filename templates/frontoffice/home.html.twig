@@ -40,6 +40,12 @@
                                             <a href="#" class="btn_2">buy now</a>
 
                                         </div>
+                                         <div class="banner_text_iner">
+                                            <h1>Culture</h1>
+                                            
+                                            
+
+                                        </div>
                                     </div>
                                 </div>
 
@@ -68,7 +74,13 @@
                 <td>{{ i.prix }}</td>
                 <td>{{ i.cathegorie.id }}</td>
                 <td><a href="#" class="btn_2">buy now</a></td>
+<td>
+  <p>
+    My rating:
+           <input type="number" name="inputName" id="rating1" class="rating text-warning" data-clearable="remove"/>
 
+</p>
+</td>
 
             </tr>
 
@@ -77,6 +89,8 @@
 
         </tbody>
     </table>
+
+    
     <!--::subscribe_area part end::-->
     {{include('includes/frontoffice/footer.html.twig')}}
     <!--::footer_part start::-->
