@@ -201,8 +201,11 @@
         </ul>
 
     </nav>
-
-
+ 
+  <form method="post" action="{{ path('produit_search') }}">
+                    <input type="text" name="produit" placeholder="produit " />
+                    <input type="submit" value="chercher">
+                </form>
 
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>

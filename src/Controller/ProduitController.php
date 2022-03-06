@@ -5,13 +5,19 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
-use http\Env\Request;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\core\Type\FileType;
+use Mukadi\Chart\Builder;
+use Mukadi\Chart\Utils\RandomColorFactory;
+use Mukadi\Chart\Chart;
 
+
+use PDO;
 class ProduitController extends AbstractController
 {
     /**
@@ -81,6 +87,56 @@ class ProduitController extends AbstractController
             'f' => $form->createView(),
         ]);
     }
+
+    
+
+    /**
+     * @Route("/statics", name="produit_stat", methods={"GET"})
+     */
+    public function stat()
+    {
+        $connection = new PDO('mysql:dbname=culture-website-db;host=127.0.0.1','root','');
+        $builder = new Builder($connection);
+
+        $builder
+//
+            ->query("SELECT COUNT(*) total, designation FROM produit GROUP BY designation")
+            ->addDataset('total','Total',[
+                "backgroundColor" => RandomColorFactory::getRandomRGBAColors(24)
+            ])
+            ->labels('designation');
+
+        $chart = $builder->buildChart('chart',Chart::PIE);
+        dump($chart);
+        return $this->render('produit/chart.html.twig',[
+            "chart" => $chart
+        ]);
+    }
+
+ 
+ /**
+     * @Route("/searchProduit", name="produit_search")
+     */
+    public function searchProduit(Request $request)
+    {
+        $data=   $request->get('produit');
+        $em=$this->getDoctrine()->getManager();
+        if($data == ""){
+            $data=$em->getRepository(Produit::class)->findAll();
+        }else{
+            $data=$em->getRepository(Produit::class)->findBy(
+                ['designation'=> $data]
+            );
+        }
+
+        return $this->render('backoffice/dashboardPr.html.twig', array(
+            'data' => $data
+        ));
+
+    }
+       
+
+  
 
 
 
